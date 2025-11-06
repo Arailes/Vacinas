@@ -2,18 +2,19 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Menu de Navegação - Vacinas</title>
+    <title>Calendário Vacinal Interativo - Memorex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* Estilos Base e Cores Aconchegantes */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             line-height: 1.6; 
             margin: 0; 
-            padding: 30px; 
-            background-color: #f0f4f8; /* Fundo levemente azulado/cinza claro */
+            padding: 20px; 
+            background-color: #f0f4f8; /* Fundo suave */
             color: #343a40;
         }
-        .menu-container { 
+        .container { 
             max-width: 950px; 
             margin: auto; 
             background-color: #ffffff; 
@@ -22,7 +23,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
-        /* Título da Página de Menu */
+        /* Títulos */
         h1 { 
             color: #3b82f6; /* Azul principal */
             text-align: center;
@@ -31,68 +32,368 @@
             padding-bottom: 15px;
             border-bottom: 3px solid #93c5fd;
         }
+        h2 { 
+            color: #1d4ed8; 
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            padding-left: 10px;
+            border-left: 5px solid #a3bfff;
+        }
         
         /* Estilo do Menu de Botões (3 Colunas) */
         .nav-buttons {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-            gap: 15px; /* Espaço maior entre os botões */
-            margin-bottom: 20px;
-        }
-        .nav-buttons a {
-            text-decoration: none;
-            text-align: center;
-            padding: 15px 5px; /* Mais espaço interno */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo, mas mantém 3 colunas em telas maiores */
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #e0f2fe; 
             border-radius: 10px;
-            background-color: #8bbaf7; /* Azul Aconchegante */
+        }
+        .nav-buttons button {
+            all: unset; /* Remove estilos padrão de botão */
+            cursor: pointer;
+            text-align: center;
+            padding: 15px 5px;
+            border-radius: 10px;
+            background-color: #60a5fa; /* Azul Aconchegante */
             color: #ffffff;
             font-weight: 600;
             transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
             font-size: 1em;
         }
-        .nav-buttons a:hover {
-            background-color: #4a69bd; /* Azul mais profundo no hover */
+        .nav-buttons button:hover {
+            background-color: #4a69bd; 
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
         }
-        
-        /* Alinhamento para garantir que os 17 botões se encaixem em 6 linhas, mesmo que a última linha não preencha todas as 3 colunas */
-        .prompt-note {
-            text-align: center;
-            color: #6c757d;
-            margin-top: 30px;
-            font-style: italic;
+
+        /* Estilo das Tabelas (Memorex Style) */
+        .vaccine-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
         }
+        .vaccine-table th, .vaccine-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e5e7eb;
+        }
+        .vaccine-table th {
+            background-color: #bfdbfe; 
+            color: #1e3a8a;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .vaccine-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .vaccine-table tr:hover {
+            background-color: #eef2ff;
+        }
+        
+        /* CLASSE DE OCULTAÇÃO INICIAL E EXIBIÇÃO */
+        .content-section {
+            display: none; /* Oculta todas as seções por padrão */
+            padding: 20px;
+            border: 1px solid #cce0ff;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        /* Feedback visual para o botão ativo */
+        .nav-buttons button.active {
+            background-color: #1e3a8a;
+            transform: translateY(-1px);
+        }
+
     </style>
 </head>
 <body>
-    <div class="menu-container">
-        <h1>Navegação Rápida do Calendário Vacinal</h1>
+    <div class="container">
+        <h1>🧠 Memorex Interativo: Esquema Vacinal</h1>
         
-        <div class="nav-buttons">
-            <a href="URL_DA_PAGINA_COMPLETA#ao-nascer">Ao Nascer</a>
-            <a href="URL_DA_PAGINA_COMPLETA#2-meses">2 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#3-meses">3 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#4-meses">4 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#5-meses">5 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#6-meses">6 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#7-meses">7 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#9-meses">9 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#12-meses">12 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#13-meses">13 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#15-meses">15 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#18-meses">18 Meses</a>
-            <a href="URL_DA_PAGINA_COMPLETA#4-6-anos">4-6 Anos</a>
-            <a href="URL_DA_PAGINA_COMPLETA#9-anos">9 Anos</a>
-            <a href="URL_DA_PAGINA_COMPLETA#10-anos">10 Anos</a>
-            <a href="URL_DA_PAGINA_COMPLETA#adolescentes-adultos-idosos">Adultos/Idosos</a>
-            <a href="URL_DA_PAGINA_COMPLETA#gestantes">Gestantes</a>
+        <p style="text-align: center; font-style: italic;">Clique na faixa etária para revelar as vacinas correspondentes.</p>
+
+        <!-- Menu de Botões (Gatilho para exibir/ocultar) -->
+        <div class="nav-buttons" id="nav-menu">
+            <!-- Os botões agora são elementos button e usam a função showSection -->
+            <button data-target="ao-nascer">Ao Nascer</button>
+            <button data-target="2-meses">2 Meses</button>
+            <button data-target="3-meses">3 Meses</button>
+            <button data-target="4-meses">4 Meses</button>
+            <button data-target="5-meses">5 Meses</button>
+            <button data-target="6-meses">6 Meses</button>
+            <button data-target="7-meses">7 Meses</button>
+            <button data-target="9-meses">9 Meses</button>
+            <button data-target="12-meses">12 Meses</button>
+            <button data-target="13-meses">13 Meses</button>
+            <button data-target="15-meses">15 Meses</button>
+            <button data-target="18-meses">18 Meses</button>
+            <button data-target="4-6-anos">4-6 Anos</button>
+            <button data-target="9-anos">9 Anos</button>
+            <button data-target="10-anos">10 Anos</button>
+            <button data-target="adolescentes-adultos-idosos">Adultos/Idosos</button>
+            <button data-target="gestantes">Gestantes</button>
         </div>
         
-        <p class="prompt-note">
-            *Nota: Para que os links funcionem como navegação direta, substitua "URL_DA_PAGINA_COMPLETA" pelo endereço real da página que contém todas as informações detalhadas.
-        </p>
+        <!-- SEÇÕES DE CONTEÚDO (Todas com display: none inicial) -->
+        
+        <div id="ao-nascer" class="content-section">
+            <h2>👶 Ao Nascer</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th><th>Observação</th></tr></thead>
+                <tbody>
+                    <tr><td>Hepatite B</td><td>—</td></tr>
+                    <tr><td>VSR (0 a 24 meses)*</td><td>*Imunizante Beyfortus (contra o vírus sincicial respiratório - VSR) indicado para crianças desde o nascimento até 2 anos de idade.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="2-meses" class="content-section">
+            <h2>2 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th><th>Componentes / Tipo</th></tr></thead>
+                <tbody>
+                    <tr><td>Hexavalente Acelular</td><td>Difteria, Tétano, Coqueluche, Haemophilus influenzae B, Pólio Inativada e Hepatite B</td></tr>
+                    <tr><td>Pneumocócica Conjugada</td><td>—</td></tr>
+                    <tr><td>Rotavírus Pentavalente</td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="3-meses" class="content-section">
+            <h2>3 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>Meningocócica B</td></tr>
+                    <tr><td>Meningocócica ACWY</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="4-meses" class="content-section">
+            <h2>4 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th><th>Componentes / Tipo</th></tr></thead>
+                <tbody>
+                    <tr><td>Pentavalente Acelular</td><td>Difteria, Tétano, Coqueluche, Haemophilus Influenzae B e Pólio Inativada</td></tr>
+                    <tr><td>Pneumocócica Conjugada</td><td>—</td></tr>
+                    <tr><td>Rotavírus Pentavalente</td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="5-meses" class="content-section">
+            <h2>5 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>Meningocócica B</td></tr>
+                    <tr><td>Meningocócica ACWY</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="6-meses" class="content-section">
+            <h2>6 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>Hexavalente Acelular (Difteria, Tétano, Coqueluche, Haemophilus influenzae B, Pólio Inativada e Hepatite B)</td></tr>
+                    <tr><td>Rotavírus Pentavalente</td></tr>
+                    <tr><td>Influenza (Gripe)</td></tr>
+                    <tr><td>Pneumocócica Conjugada</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="7-meses" class="content-section">
+            <h2>7 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>Influenza (Gripe)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="9-meses" class="content-section">
+            <h2>9 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>Febre Amarela</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="12-meses" class="content-section">
+            <h2>12 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>Tríplice Viral (Sarampo, Caxumba e Rubéola)</td></tr>
+                    <tr><td>Varicela (Catapora)</td></tr>
+                    <tr><td>Hepatite A</td></tr>
+                    <tr><td>Pneumocócica Conjugada</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="13-meses" class="content-section">
+            <h2>13 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>Meningocócica B</td></tr>
+                    <tr><td>Meningocócica ACWY</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="15-meses" class="content-section">
+            <h2>15 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th><th>Componentes</th></tr></thead>
+                <tbody>
+                    <tr><td>Pentavalente Acelular</td><td>Difteria, Tétano, Coqueluche, Haemophilus influenzae B e Pólio Inativada</td></tr>
+                    <tr><td>Tríplice Viral (Sarampo, Caxumba e Rubéola)</td><td>—</td></tr>
+                    <tr><td>Varicela (Catapora)</td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="18-meses" class="content-section">
+            <h2>18 Meses</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>Hepatite A</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="4-6-anos" class="content-section">
+            <h2>4-6 Anos</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th><th>Componentes</th></tr></thead>
+                <tbody>
+                    <tr><td>dTpa-VIP</td><td>Difteria, Tétano e Coqueluche Acelular e Pólio Inativada</td></tr>
+                    <tr><td>Febre Amarela</td><td>—</td></tr>
+                    <tr><td>Meningocócica ACWY</td><td>—</td></tr>
+                    <tr><td>Dengue</td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="9-anos" class="content-section">
+            <h2>9 Anos</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>HPV (Papilomavírus humano)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="10-anos" class="content-section">
+            <h2>10 Anos</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>dTpa ou dTpa-VIP</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="adolescentes-adultos-idosos" class="content-section">
+            <h2>🧍‍♀️ Adolescentes, Adultos e Idosos</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th><th>Observação / Indicação</th></tr></thead>
+                <tbody>
+                    <tr><td>Dengue</td><td>De 4 até 60 anos</td></tr>
+                    <tr><td>Pneumocócica</td><td>Protege contra Pneumonia, Otite, Meningite e Sepse</td></tr>
+                    <tr><td>Vírus Sincicial Respiratório (VSR)</td><td>—</td></tr>
+                    <tr><td>dTpa (Difteria, Tétano e Coqueluche acelular)</td><td>—</td></tr>
+                    <tr><td>dTpa-VIP (Difteria, Tétano e Coqueluche e Pólio Inativada)</td><td>—</td></tr>
+                    <tr><td>Hepatite A</td><td>—</td></tr>
+                    <tr><td>Hepatite B</td><td>—</td></tr>
+                    <tr><td>Hepatite A+B</td><td>—</td></tr>
+                    <tr><td>Herpes Zóster (Cobreiro)</td><td>—</td></tr>
+                    <tr><td>Influenza</td><td>—</td></tr>
+                    <tr><td>Efluelda (Gripe high-dose)</td><td>A partir de 60 anos</td></tr>
+                    <tr><td>Febre Amarela</td><td>—</td></tr>
+                    <tr><td>HPV (Papilomavírus Humano)</td><td>—</td></tr>
+                    <tr><td>Tríplice Viral (Sarampo, Caxumba e Rubéola)</td><td>—</td></tr>
+                    <tr><td>Varicela (Catapora)</td><td>—</td></tr>
+                </tr>
+                    <tr><td>Meningocócica ACWY</td><td>—</td></tr>
+                    <tr><td>Meningocócica B</td><td>Até 50 anos</td></tr>
+                    <tr><td>Febre Tifoide</td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="gestantes" class="content-section">
+            <h2>🤰 Gestantes</h2>
+            <table class="vaccine-table">
+                <thead><tr><th>Vacina</th></tr></thead>
+                <tbody>
+                    <tr><td>dTpa ou dTpa-VIP</td></tr>
+                    <tr><td>Hepatite B</td></tr>
+                    <tr><td>Influenza</td></tr>
+                    <tr><td>Imunoglobulina anti-Rh</td></tr>
+                    <tr><td>Vírus Sincicial Respiratório (VSR)</td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <script>
+        // Função JavaScript para controlar a visibilidade das seções
+        function showSection(targetId) {
+            // 1. Oculta todas as seções
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // 2. Remove o destaque de todos os botões
+            const buttons = document.querySelectorAll('.nav-buttons button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // 3. Exibe a seção alvo
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+                // Rola a página para que o conteúdo fique visível
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            
+            // 4. Adiciona destaque ao botão clicado
+            const clickedButton = document.querySelector(`button[data-target="${targetId}"]`);
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
+        }
+
+        // Adiciona o listener de evento para os botões
+        document.addEventListener('DOMContentLoaded', () => {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.addEventListener('click', (event) => {
+                const button = event.target.closest('button[data-target]');
+                if (button) {
+                    const targetId = button.getAttribute('data-target');
+                    showSection(targetId);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
