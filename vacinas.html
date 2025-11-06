@@ -2,86 +2,101 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Calendário de Vacinação Revisado</title>
+    <title>Calendário Vacinal - MEMOREX</title>
     <style>
+        /* Estilos Base e Cores Aconchegantes */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.7; 
+            line-height: 1.6; 
             margin: 0; 
             padding: 20px; 
-            background-color: #f8f9fa; /* Fundo claro e suave */
+            background-color: #fcfcfc;
             color: #343a40;
         }
         .container { 
-            max-width: 900px; 
+            max-width: 1000px; 
             margin: auto; 
             background-color: #ffffff; 
             padding: 30px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 15px; 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
         }
+        
+        /* Títulos */
         h1 { 
-            color: #1e3a8a; /* Azul escuro para o título principal */
+            color: #4a69bd;
             text-align: center;
-            margin-bottom: 25px;
-            border-bottom: 3px solid #93c5fd; /* Borda azul claro */
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #8bbaf7;
             padding-bottom: 10px;
         }
         h2 { 
-            color: #1d4ed8; /* Azul para os subtítulos */
-            margin-top: 35px;
-            padding-left: 10px;
-            border-left: 5px solid #60a5fa; /* Destaque lateral suave */
+            color: #1d4ed8; 
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
         }
         
-        /* Estilo dos Botões de Navegação */
+        /* Estilo do Menu de Botões (3 Colunas) */
         .nav-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 30px;
-            padding: 15px;
-            background-color: #e0f2fe; /* Fundo azul muito claro para os botões */
-            border-radius: 8px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #e0f2fe; /* Azul pastel claro */
+            border-radius: 10px;
         }
         .nav-buttons a {
             text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 25px;
-            background-color: #bfdbfe; /* Azul claro/Aconchegante */
-            color: #1e3a8a;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.1s;
+            text-align: center;
+            padding: 12px 5px;
+            border-radius: 8px;
+            background-color: #60a5fa; /* Azul vibrante, mas suave */
+            color: #ffffff;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
         }
         .nav-buttons a:hover {
-            background-color: #93c5fd; /* Azul um pouco mais escuro no hover */
+            background-color: #3b82f6;
             transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
-        /* Estilo das Listas */
-        ul { 
-            list-style-type: none; 
-            padding-left: 0;
+        /* Estilo das Tabelas (Memorex Style) */
+        .vaccine-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
         }
-        li { 
-            background-color: #f1f5f9; /* Cor de fundo leve para cada item */
-            margin-bottom: 8px;
-            padding: 10px 15px;
-            border-radius: 6px;
-            border-left: 5px solid #3b82f6; /* Destaque de cor no item */
+        .vaccine-table th, .vaccine-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e5e7eb;
         }
-        li ul li {
-             background-color: #ffffff; /* Fundo branco para sub-listas */
-             border-left: 3px solid #9ca3af;
-             margin-top: 5px;
+        .vaccine-table th {
+            background-color: #bfdbfe; /* Azul claro (Header) */
+            color: #1e3a8a;
+            font-weight: bold;
+            text-transform: uppercase;
         }
+        .vaccine-table tr:nth-child(even) {
+            background-color: #f8f9fa; /* Listras leves */
+        }
+        .vaccine-table tr:hover {
+            background-color: #eef2ff; /* Destaque no hover */
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🗓️ Calendário de Vacinação (Referência Médica)</h1>
+        <h1>💊 Calendário Vacinal - Estilo Memorex </h1>
+        
+        <p>Clique nas idades ou grupos para navegar rapidamente ao esquema vacinal correspondente. </p>
 
         <div class="nav-buttons">
             <a href="#ao-nascer">Ao Nascer</a>
@@ -102,136 +117,404 @@
             <a href="#adolescentes-adultos-idosos">Adultos/Idosos</a>
             <a href="#gestantes">Gestantes</a>
         </div>
-
+        
         <h2 id="ao-nascer">👶 Ao Nascer</h2>
-        <ul>
-            [span_0](start_span)<li>Hepatite B[span_0](end_span)</li>
-            [span_1](start_span)<li>VSR (0 a 24 meses)*[span_1](end_span)
-                <ul>
-                    [span_2](start_span)<li>*OBS: O imunizante Beyfortus (contra o vírus sincicial respiratório - VSR) é indicado para crianças desde o nascimento até 2 anos de idade[span_2](end_span).</li>
-                </ul>
-            </li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                    <th>Observação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hepatite B</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>VSR (0 a 24 meses)*</td>
+                    <td>*Imunizante Beyfortus (contra o vírus sincicial respiratório - VSR) indicado para crianças desde o nascimento até 2 anos de idade.</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="2-meses">2 Meses</h2>
-        <ul>
-            [span_3](start_span)<li>Hexavalente Acelular (Difteria, Tétano, Coqueluche, Haemophilus influenzae B, Pólio Inativada e Hepatite B)[span_3](end_span)</li>
-            [span_4](start_span)<li>Pneumocócica Conjugada[span_4](end_span)</li>
-            [span_5](start_span)<li>Rotavírus Pentavalente[span_5](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                    <th>Componentes / Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hexavalente Acelular</td>
+                    <td>Difteria, Tétano, Coqueluche, Haemophilus influenzae B, Pólio Inativada e Hepatite B</td>
+                </tr>
+                <tr>
+                    <td>Pneumocócica Conjugada</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Rotavírus Pentavalente</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="3-meses">3 Meses</h2>
-        <ul>
-            [span_6](start_span)<li>Meningocócica B[span_6](end_span)</li>
-            [span_7](start_span)<li>Meningocócica ACWY[span_7](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Meningocócica B</td>
+                </tr>
+                <tr>
+                    <td>Meningocócica ACWY</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="4-meses">4 Meses</h2>
-        <ul>
-            [span_8](start_span)<li>Pentavalente Acelular (Difteria, Tétano, Coqueluche, Haemophilus Influenzae B e Pólio Inativada)[span_8](end_span)</li>
-            [span_9](start_span)<li>Pneumocócica Conjugada[span_9](end_span)</li>
-            [span_10](start_span)<li>Rotavírus Pentavalente[span_10](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                    <th>Componentes / Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pentavalente Acelular</td>
+                    <td>Difteria, Tétano, Coqueluche, Haemophilus Influenzae B e Pólio Inativada</td>
+                </tr>
+                <tr>
+                    <td>Pneumocócica Conjugada</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Rotavírus Pentavalente</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="5-meses">5 Meses</h2>
-        <ul>
-            [span_11](start_span)<li>Meningocócica B[span_11](end_span)</li>
-            [span_12](start_span)<li>Meningocócica ACWY[span_12](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Meningocócica B</td>
+                </tr>
+                <tr>
+                    <td>Meningocócica ACWY</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="6-meses">6 Meses</h2>
-        <ul>
-            [span_13](start_span)<li>Hexavalente Acelular (Difteria, Tétano, Coqueluche, Haemophilus influenzae B, Pólio Inativada e Hepatite B)[span_13](end_span)</li>
-            [span_14](start_span)<li>Rotavírus Pentavalente[span_14](end_span)</li>
-            [span_15](start_span)<li>Influenza (Gripe)[span_15](end_span)</li>
-            [span_16](start_span)<li>Pneumocócica Conjugada[span_16](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hexavalente Acelular (Difteria, Tétano, Coqueluche, Haemophilus influenzae B, Pólio Inativada e Hepatite B)</td>
+                </tr>
+                <tr>
+                    <td>Rotavírus Pentavalente</td>
+                </tr>
+                <tr>
+                    <td>Influenza (Gripe)</td>
+                </tr>
+                <tr>
+                    <td>Pneumocócica Conjugada</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="7-meses">7 Meses</h2>
-        <ul>
-            [span_17](start_span)<li>Influenza (Gripe)[span_17](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Influenza (Gripe)</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="9-meses">9 Meses</h2>
-        <ul>
-            [span_18](start_span)<li>Febre Amarela[span_18](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Febre Amarela</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="12-meses">12 Meses</h2>
-        <ul>
-            [span_19](start_span)<li>Tríplice Viral (Sarampo, Caxumba e Rubéola)[span_19](end_span)</li>
-            [span_20](start_span)<li>Varicela (Catapora)[span_20](end_span)</li>
-            [span_21](start_span)<li>Hepatite A[span_21](end_span)</li>
-            [span_22](start_span)<li>Pneumocócica Conjugada[span_22](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tríplice Viral (Sarampo, Caxumba e Rubéola)</td>
+                </tr>
+                <tr>
+                    <td>Varicela (Catapora)</td>
+                </tr>
+                <tr>
+                    <td>Hepatite A</td>
+                </tr>
+                <tr>
+                    <td>Pneumocócica Conjugada</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="13-meses">13 Meses</h2>
-        <ul>
-            [span_23](start_span)<li>Meningocócica B[span_23](end_span)</li>
-            [span_24](start_span)<li>Meningocócica ACWY[span_24](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Meningocócica B</td>
+                </tr>
+                <tr>
+                    <td>Meningocócica ACWY</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="15-meses">15 Meses</h2>
-        <ul>
-            [span_25](start_span)<li>Pentavalente Acelular (Difteria, Tétano, Coqueluche, Haemophilus influenzae B e Pólio Inativada)[span_25](end_span)</li>
-            [span_26](start_span)<li>Tríplice Viral (Sarampo, Caxumba e Rubéola)[span_26](end_span)</li>
-            [span_27](start_span)<li>Varicela (Catapora)[span_27](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                    <th>Componentes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pentavalente Acelular</td>
+                    <td>Difteria, Tétano, Coqueluche, Haemophilus influenzae B e Pólio Inativada</td>
+                </tr>
+                <tr>
+                    <td>Tríplice Viral (Sarampo, Caxumba e Rubéola)</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Varicela (Catapora)</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="18-meses">18 Meses</h2>
-        <ul>
-            [span_28](start_span)<li>Hepatite A[span_28](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hepatite A</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="4-6-anos">4-6 Anos</h2>
-        <ul>
-            [span_29](start_span)<li>dTpa-VIP (Difteria, Tétano e Coqueluche Acelular e Póllo Inativada)[span_29](end_span)</li>
-            [span_30](start_span)<li>Febre Amarela[span_30](end_span)</li>
-            [span_31](start_span)<li>Meningocócica ACWY[span_31](end_span)</li>
-            [span_32](start_span)<li>Dengue[span_32](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                    <th>Componentes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>dTpa-VIP</td>
+                    <td>Difteria, Tétano e Coqueluche Acelular e Pólio Inativada</td>
+                </tr>
+                <tr>
+                    <td>Febre Amarela</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Meningocócica ACWY</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Dengue</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="9-anos">9 Anos</h2>
-        <ul>
-            [span_33](start_span)<li>HPV (Papilomavírus humano)[span_33](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HPV (Papilomavírus humano)</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="10-anos">10 Anos</h2>
-        <ul>
-            [span_34](start_span)<li>dTpa ou dTpa-VIP[span_34](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>dTpa ou dTpa-VIP</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="adolescentes-adultos-idosos">🧍‍♀️ Adolescentes, Adultos e Idosos</h2>
-        <ul>
-            [span_35](start_span)<li>Dengue (de 4 até 60 anos)[span_35](end_span)</li>
-            [span_36](start_span)<li>Pneumocócica (Pneumonia, Otite, Meningite e Sepse)[span_36](end_span)</li>
-            [span_37](start_span)<li>Vírus Sincicial Respiratório (VSR)[span_37](end_span)</li>
-            [span_38](start_span)<li>dTpa (Difteris, Tétano e Coqueluche acelular)[span_38](end_span)</li>
-            [span_39](start_span)<li>dTpa-VIP (Difteria, Tétano e Coqueluche e Póllo Inativada)[span_39](end_span)</li>
-            [span_40](start_span)<li>Hepatite A[span_40](end_span)</li>
-            [span_41](start_span)<li>Hepatite B[span_41](end_span)</li>
-            [span_42](start_span)<li>Hepatite A+B[span_42](end_span)</li>
-            [span_43](start_span)<li>Herpes Zóster (Cobreiro)[span_43](end_span)</li>
-            [span_44](start_span)<li>Influenza[span_44](end_span)</li>
-            [span_45](start_span)<li>Efluelda (Gripe high-dose - a partir de 60 anos)[span_45](end_span)</li>
-            [span_46](start_span)<li>Febre Amarela[span_46](end_span)</li>
-            [span_47](start_span)<li>HPV (Papilomavirus Humano)[span_47](end_span)</li>
-            [span_48](start_span)<li>Tríplice Viral (Sarampo, Caxumba e Rubéola)[span_48](end_span)</li>
-            [span_49](start_span)<li>Varicela (Catapora)[span_49](end_span)</li>
-            [span_50](start_span)<li>Meningocócica ACWY[span_50](end_span)</li>
-            [span_51](start_span)<li>Meningocócica B (até 50 anos)[span_51](end_span)</li>
-            [span_52](start_span)<li>Febre Tifoide[span_52](end_span)</li>
-        </ul>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                    <th>Observação / Indicação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dengue</td>
+                    <td>De 4 até 60 anos</td>
+                </tr>
+                <tr>
+                    <td>Pneumocócica</td>
+                    <td>Protege contra Pneumonia, Otite, Meningite e Sepse</td>
+                </tr>
+                <tr>
+                    <td>Vírus Sincicial Respiratório (VSR)</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>dTpa (Difteria, Tétano e Coqueluche acelular)</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>dTpa-VIP (Difteria, Tétano e Coqueluche e Pólio Inativada)</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Hepatite A</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Hepatite B</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Hepatite A+B</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Herpes Zóster (Cobreiro)</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Influenza</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Efluelda (Gripe high-dose)</td>
+                    <td>A partir de 60 anos</td>
+                </tr>
+                <tr>
+                    <td>Febre Amarela</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>HPV (Papilomavírus Humano)</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Tríplice Viral (Sarampo, Caxumba e Rubéola)</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Varicela (Catapora)</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Meningocócica ACWY</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Meningocócica B</td>
+                    <td>Até 50 anos</td>
+                </tr>
+                <tr>
+                    <td>Febre Tifoide</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="gestantes">🤰 Gestantes</h2>
-        <ul>
-            [span_53](start_span)<li>dTpa ou dTpa-VIP[span_53](end_span)</li>
-            [span_54](start_span)<li>Hepatite B[span_54](end_span)</li>
-            [span_55](start_span)<li>Influenza[span_55](end_span)</li>
-            [span_56](start_span)<li>Imunoglobulina anti-Rh[span_56](end_span)</li>
-            [span_57](start_span)<li>Vírus Sincicial Respiratório (VSR)[span_57](end_span)</li>
-        </ul>
-
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vacina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>dTpa ou dTpa-VIP</td>
+                </tr>
+                <tr>
+                    <td>Hepatite B</td>
+                </tr>
+                <tr>
+                    <td>Influenza</td>
+                </tr>
+                <tr>
+                    <td>Imunoglobulina anti-Rh</td>
+                </tr>
+                <tr>
+                    <td>Vírus Sincicial Respiratório (VSR)</td>
+                </tr>
+            </tbody>
+        </table>
+            
     </div>
 </body>
 </html>
