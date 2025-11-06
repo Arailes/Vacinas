@@ -1,2 +1,0 @@
-# Vacinas
-Guia de vacinas
